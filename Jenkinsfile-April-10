@@ -16,4 +16,15 @@ node{
     sh "${mavenHome}/bin/mvn  deploy"
    }
 
+   stage('deploy2dev') {
+    sh "echo 'deploying to tomcat dev environment'"
+    deploy adapters: [tomcat9(credentialsId: 'bettyp-deployer', path: '', url: 'http://52.14.69.205:8009/')], contextPath: 'april10-dev', war: 'target/*.war'
+   }
+    
+   stage('deploy2Test') {
+    sh "echo 'deploying to tomcat dev environment'"
+    deploy adapters: [tomcat9(credentialsId: 'bettyp-deployer', path: '', url: 'http://52.14.69.205:8009/')], contextPath: 'april10-test', war: 'target/*.war'
+   }
+
+
 }
