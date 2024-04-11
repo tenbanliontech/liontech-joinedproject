@@ -33,8 +33,10 @@ node{
 
    stage('Approval-Required4Prod-Release'){
     sh "echo 'application ready fro deploy to production'"
-    timeout(time:5, unit: 'DAYS')
+    timeout(time:5, unit: 'DAYS'){
     input message: "Feature is ready for release, please approve"
+
+    }
 
    }
 
