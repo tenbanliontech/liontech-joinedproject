@@ -3,4 +3,9 @@ node{
    stage('clonefromscm'){
     git branch: 'dev', url: 'https://github.com/Lion-Technology-Solutions/liontech-joinedproject.git'
    }
+
+   stage('Build&package-application'){
+    sh "${MavenHome}/bin/mvn  clean package"
+   }
+
 }
