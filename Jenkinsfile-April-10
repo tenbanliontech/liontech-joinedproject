@@ -26,5 +26,25 @@ node{
     deploy adapters: [tomcat9(credentialsId: 'bettyp-deployer', path: '', url: 'http://52.14.69.205:8009/')], contextPath: 'april10-test', war: 'target/*.war'
    }
 
+   stage('deploy2UAT/STAGE') {
+    sh "echo 'deploying to tomcat dev environment'"
+    deploy adapters: [tomcat9(credentialsId: 'bettyp-deployer', path: '', url: 'http://52.14.69.205:8009/')], contextPath: 'april10-stage', war: 'target/*.war'
+   }
+
+   stage('Approval-Required4Prod-Release'){
+    sh "echo 'application ready fro deploy to production'"
+    timeout(time:5, unit: 'DAYS')
+    input message: "Feature is ready for release, please approve"
+
+   }
+
+   stage('deploy2UAT/STAGE') {
+    sh "echo 'deploying to tomcat dev environment'"
+    deploy adapters: [tomcat9(credentialsId: 'bettyp-deployer', path: '', url: 'http://52.14.69.205:8009/')], contextPath: 'april10-prod', war: 'target/*.war'
+   }
+
+
+
+
 
 }
