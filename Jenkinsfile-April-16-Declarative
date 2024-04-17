@@ -16,12 +16,18 @@ pipeline{
     }
    }
 
-   stage('build&package'){
-    steps{
-     sh "echo 'just testing'"
-     sh  "mvn clean package"
+
+    stage('build and package'){
+     steps{
+      sh " mvn clean package"
+     }
     }
-   }
+     
+
+    
+   
+
+    
 
    
 
