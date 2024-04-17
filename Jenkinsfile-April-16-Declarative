@@ -1,0 +1,26 @@
+pipeline{
+   agent any 
+
+   tools {
+    maven "maven3.96"
+   }
+
+   stages {
+    stage('clonefromscm'){
+
+     steps{
+
+      sh "echo  'cloning the latest source code changees'"
+      git branch: 'april16', credentialsId: 'JENKINS-GITHUB', url: 'git@github.com:Lion-Technology-Solutions/liontech-joinedproject.git'
+     }
+    }
+   }
+
+
+
+
+
+
+
+
+}
