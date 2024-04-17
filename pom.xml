@@ -76,13 +76,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>LION TECH ACADEMY Releases Nexus Repository</name>
-	      <url>http://184.72.64.204:8081/repository/achu-release/</url>
+	      <url>http://54.221.36.9:8081/repository/ghislain24/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>LION TECH ACADEMY Snapshot Nexus Repository </name>
-	      <url>http://184.72.64.204:8081/repository/achu-snapshots/</url>
+	      <url>http://54.221.36.9:8081/repository/ghislain24-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
