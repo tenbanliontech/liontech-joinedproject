@@ -1,45 +1,22 @@
 pipeline{
-   agent any 
+	agent  any
+	tools {
+	maven "maven3.96"
+	}
 
-   tools {
-    maven "maven3.96"
-   }
+	stages {
+	  stage('clonefromscm'){
+	    steps{
+	      sh "echo  'cloning the latest source code changees'"
+          git branch: 'april16', credentialsId: 'JENKINS-GITHUB', url: 'git@github.com:Lion-Technology-Solutions/liontech-joinedproject.git'
+	    }
+	  }
+	}
 
-   stages {
-    stage('clonefromscm'){
-
-     steps{
-
-      sh "echo  'cloning the latest source code changees'"
-      git branch: 'april16', credentialsId: 'JENKINS-GITHUB', url: 'git@github.com:Lion-Technology-Solutions/liontech-joinedproject.git'
-     }
-    }
-   }
-
-    stage('3Test+Build'){
-      steps{
-        sh "echo 'running JUnit-test-cases' "
-        sh "echo 'testing must passed to create artifacts ' "
-        sh "mvn clean package"
-      }
-    }
-
-
-  
-     
-
-    
-   
-
-    
-
-   
-
-
-
-
-
-
-
-
+	  stage('build&test%package'){
+	    steps{
+	      sh "echo 'build and package apps'"
+	      sh  "mvn clean package"
+	    }
+	  }
 }
