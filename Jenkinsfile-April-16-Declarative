@@ -1,23 +1,26 @@
 pipeline{
-  agent any 
+  agent any    // agent is used in case we have a jenkins master slave arch. 
   tools {
     maven "maven3.96"
   }  
   stages {
-    stage('1GetCode'){
+    stage('clonefromscm'){
       steps{
         sh "echo 'cloning the latest application version' "
-        git branch: 'april16', credentialsId: 'JENKINS-GITHUB', url: 'git@github.com:Lion-Technology-Solutions/liontech-joinedproject.git'
+        sh  "echo   'Jenkins clones the code from github'"
+        git branch: 'april16', credentialsId: 'APRIL17', url: 'git@github.com:Lion-Technology-Solutions/liontech-joinedproject.git'
       }
     }
-    stage('3Test+Build'){
+    stage('Maven-buildandPackage'){
       steps{
         sh "echo 'running JUnit-test-cases' "
         sh "echo 'testing must passed to create artifacts ' "
+        sh "mvn validate"
+        sh "mvn install"
         sh "mvn clean package"
       }
     }
-    stage('4CodeQuality'){
+    stage('Sonarqube-code-quality-inspection'){
       steps{
         sh "echo 'Perfoming CodeQualityAnalysis' "
         sh "mvn sonar:sonar"
@@ -25,12 +28,14 @@ pipeline{
     }
     stage('5uploadNexus'){
       steps{
+
+        sh "echo  'storing our build artifact into nexus'"
         sh "mvn deploy"
       }
     } 
     stage('8deploy2prod'){
       steps{
-        deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://35.170.249.131:8080/')], contextPath: null, war: 'target/*war'
+        deploy adapters: [tomcat9(credentialsId: 'bettyp-deployer', path: '', url: 'http://18.219.241.216:8009/')], contextPath: 'APRIL17', war: 'target/*.war'
       }
     }
 }
