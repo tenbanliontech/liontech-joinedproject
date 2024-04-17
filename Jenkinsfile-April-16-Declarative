@@ -16,16 +16,14 @@ pipeline{
     }
    }
 
-   stage('Test&build&apackage'){
+   stage('build&package'){
     steps{
-     sh "echo 'runing unit test for QA  team'"
-     sh "echo 'this is LionTech Lexus app'"
-     sh "echo 'Maven is responsible for build and packaging applications for QA team'"
-
-     sh   "mvn validate"
-     sh   "mvn clean package"
+     sh "echo 'just testing'"
+     sh  "mvn clean package"
     }
    }
+
+   
 
 
 
