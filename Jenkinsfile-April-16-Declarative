@@ -7,7 +7,7 @@ pipeline{
     stage('1GetCode'){
       steps{
         sh "echo 'cloning the latest application version' "
-        git branch: '', url: 'https://github.com/Lion-Technology-Solutions/liontech-web-app-jenkins-cicd.git'
+        git branch: 'april16', credentialsId: 'JENKINS-GITHUB', url: 'git@github.com:Lion-Technology-Solutions/liontech-joinedproject.git'
       }
     }
     stage('3Test+Build'){
@@ -41,7 +41,7 @@ Please check build status.
 
 Thanks
 LionTech 
-+1 437 215 2483''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
++000000000''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
     }
     success{
       emailext body: '''Hey guys
@@ -49,7 +49,7 @@ Good job build and deployment is successful.
 
 Thanks
 LionTech 
-+1 437 215 2483''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
++000000000''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
     } 
     failure{
       emailext body: '''Hey guys
@@ -57,7 +57,7 @@ Build failed. Please resolve issues.
 
 Thanks
 LionTech 
-+1 437 215 2483''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
++000000000''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
     }
   } 
 }
