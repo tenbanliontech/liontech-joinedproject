@@ -1,7 +1,7 @@
 pipeline{
   agent any    // agent is used in case we have a jenkins master slave arch. 
   tools {
-    maven "maven3.96"
+    maven "maven3.9.8"
   }  
   stages {
     stage('clonefromscm'){
