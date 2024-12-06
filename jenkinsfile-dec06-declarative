@@ -27,7 +27,7 @@ pipeline{
 	    //steps{
 	      //sh "echo 'sonaeqube code quality inspection'"
 	      //sh "mvn sonar:sonar"
-	    }
-	  }
+	    //}
+	  //}
 	}
 }
