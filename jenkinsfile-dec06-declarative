@@ -1,0 +1,14 @@
+pipeline{
+	agent  any
+	tools{
+	  maven "maven3.9.9"
+	}
+	stages{
+	  stage('clonefromscm'){
+	    steps{
+	      sh "echo jenkins is clonefromscm"
+	      git branch: 'dec11', url: 'https://github.com/tenbanliontech/liontech-joinedproject.git'
+	    }
+	  }
+	}
+}
