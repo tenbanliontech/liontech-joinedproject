@@ -29,10 +29,16 @@ pipeline{
 	      //sh "mvn sonar:sonar"
 	    //}
 	  //}
-      
+
        stage('UploadArtifactToNexus'){
 	    steps{
 	      sh "mvn deploy"
+	    }
+	  }
+      
+      stage('deploy to dev'){
+	    steps{
+	      deploy adapters: [tomcat9(credentialsId: 'TOMCAT-CRED2', path: '', url: 'http://54.209.200.161:8009/manager/html')], contextPath: 'demo-1', war: 'target/*.war'
 	    }
 	  }
 	}
