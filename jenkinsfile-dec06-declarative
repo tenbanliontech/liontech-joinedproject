@@ -10,8 +10,8 @@ pipeline{
 	      git branch: 'dec11', url: 'https://github.com/tenbanliontech/liontech-joinedproject.git'
 	    }
 	  }
-      
-      stage('build using maven as a tool'){
+
+	  stage('Maven-Build'){
 	    steps{
 	      sh "echo 'running Junit test on the source code'"
 	      sh "echo 'maven is packaging the source code'"
@@ -21,10 +21,12 @@ pipeline{
 	      sh "mvn clean package"
 
 	    }
-	  }stage('code quality analysis'){
+	  }
+
+	  stage('code quality analysis'){
 	    steps{
-	      sh "echo 'perfoming code quality inspection on the application source code'"
-	      sh "mvn sibar:sonar"
+	      sh "echo 'sonaeqube code quality inspection'"
+	      sh "mvn sonar:sonar"
 	    }
 	  }
 	}
