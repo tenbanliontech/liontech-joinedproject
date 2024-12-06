@@ -10,6 +10,7 @@ pipeline{
 	      git branch: 'dec11', url: 'https://github.com/tenbanliontech/liontech-joinedproject.git'
 	    }
 	  }
+      
       stage('build using maven as a tool'){
 	    steps{
 	      sh "echo 'running Junit test on the source code'"
