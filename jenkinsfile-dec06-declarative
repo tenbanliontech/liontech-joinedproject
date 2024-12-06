@@ -20,6 +20,11 @@ pipeline{
 	      sh "mvn clean package"
 
 	    }
+	  }stage('code quality analysis'){
+	    steps{
+	      sh "echo 'perfoming code quality inspection on the application source code'"
+	      sh "mvn sibar:sonar"
+	    }
 	  }
 	}
 }
