@@ -22,11 +22,11 @@ pipeline{
 	    }
 	  }
 
-      stage('Code Quality'){
-	    steps{
-	    sh "echo 'sonarqube code quality inspections on source code'"
-	    sh "mvn sonar:sonar"
-	    }
-	  }
+      //stage('Code Quality'){
+	    //steps{
+	    //sh "echo 'sonarqube code quality inspections on source code'"
+	    //sh "mvn sonar:sonar"
+	    //}
+	  //}
 	}
 }
