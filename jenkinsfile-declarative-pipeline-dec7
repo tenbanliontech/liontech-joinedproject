@@ -28,5 +28,11 @@ pipeline{
 	    //sh "mvn sonar:sonar"
 	    //}
 	  //}
+
+	  stage('UploadArtifactToNexus'){
+	    steps{
+	    sh "mvn deploy"
+	    }
+	  }
 	}
 }
