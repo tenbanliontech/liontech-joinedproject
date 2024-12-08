@@ -34,5 +34,12 @@ pipeline{
 	    sh "mvn deploy"
 	    }
 	  }
+
+	  stage('Deploy To Dev'){
+	    steps{
+	    sh "echo 'deploy to production'"
+	    deploy adapters: [tomcat9(credentialsId: 'TOMCAT-CRED', path: '', url: 'http://54.209.200.161:8009/manager/html')], contextPath: 'class29-webapp', war: 'target/*.war'
+	    }
+	  }
 	}
 }
