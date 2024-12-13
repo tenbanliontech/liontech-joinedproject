@@ -11,3 +11,5 @@ pipeline{
 	    git branch: 'dec13', url: 'https://github.com/tenbanliontech/liontech-joinedproject.git'
 	    }
 	  }
+	}
+}
