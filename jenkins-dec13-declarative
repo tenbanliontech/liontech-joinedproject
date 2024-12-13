@@ -1,0 +1,13 @@
+pipeline{
+	agent  node1
+	tools{
+	  maven "maven3.9.9"
+	}
+
+	stages{
+	  stage('clonefromscm'){
+	    steps{
+	    sh "echo jekins to source code from scm"
+	    git branch: 'dec13', url: 'https://github.com/tenbanliontech/liontech-joinedproject.git'
+	    }
+	  }
