@@ -81,7 +81,7 @@
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>LION TECH ACADEMY SNAPSHOT Nexus Repository</name>
+	      <name>LION TECH ACADEMY Snapshot Nexus Repository</name>
 	      <url>http://98.81.119.46:8081/repository/snapshot-bookstore/</url>
 	    </snapshotRepository>
 	    
