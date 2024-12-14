@@ -11,5 +11,15 @@ pipeline{
 	    git branch: 'dec13', url: 'https://github.com/tenbanliontech/liontech-joinedproject.git'
 	    }
 	  }
+
+	  stage('maven-build'){
+	    steps{
+	    sh "mvn install"
+	    sh "mvn test"
+	    sh "mvn verify"
+	    sh "mvn validate"
+	    sh "mvn clean package"
+	    }
+	  }
 	}
 }
